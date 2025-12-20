@@ -1,0 +1,107 @@
+/* Body and container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 60%;
+    margin: 20px auto 50px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+/* Header */
+.header {
+    background-color: #2C3E50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+    font-size: 32px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+.footer {
+    background-color: #2C3E50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0 0 12px 12px;
+    margin-top: 20px;
+}
+
+/* Section headings */
+h2, h3 {
+    text-align: center;
+    color: #34495E;
+    background-color: #ECF0F1;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+/* Form fields */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input[type="text"], input[type="number"], select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Buttons */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button.submit-btn {
+    background-color: #27AE60;
+    color: white;
+}
+
+button.submit-btn:hover {
+    background-color: #1E8449;
+}
+
+button.back-btn {
+    background-color: #95A5A6;
+    color: white;
+}
+
+button.back-btn:hover {
+    background-color: #7F8C8D;
+}
+
+a.button-link {
+    text-decoration: none;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    padding: 5px 0;
+}
+
+label {
+    font-weight: bold;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Group</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <!-- Header -->
+    <h1 class="app-title">Expense Sharing Application</h1>
+
+    <!-- Create Group Form -->
+    <h2>Create Group</h2>
+    <form method="POST">
+        <label>Group ID:</label>
+        <input type="text" name="group_id" required>
+
+        <label>Group Name:</label>
+        <input type="text" name="group_name" required>
+
+        <label>Creator:</label>
+        <select name="creator" required>
+            {% for user in users %}
+            <option value="{{ user.user_id }}">{{ user.name }} ({{ user.email }})</option>
+            {% endfor %}
+        </select>
+
+        <label>Add Members:</label><br>
+        {% for user in users %}
+            <input type="checkbox" name="members" value="{{ user.user_id }}">
+            {{ user.name }} ({{ user.email }})<br>
+        {% endfor %}
+
+        <!-- Navigation Buttons -->
+        <div style="display:flex; gap:10px; margin-top:15px;">
+            <a class="button-link" href="{{ url_for('index') }}">
+                <button type="button" class="back-btn">Back</button>
+            </a>
+            <button type="submit" class="submit-btn">Next</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

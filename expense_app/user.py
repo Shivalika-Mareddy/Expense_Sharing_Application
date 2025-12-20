@@ -1,0 +1,8 @@
+class User:
+    def __init__(self, user_id: str, name: str, email: str):
+        self.user_id = user_id
+        self.name = name
+        self.email = email  # added email
+
+    def __repr__(self):
+        return f"{self.name} ({self.email})"

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Expense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <!-- Header -->
+    <h1 class="app-title">Expense Sharing Application</h1>
+
+    {% if message %}
+        <p style="color: green; text-align: center;">{{ message }}</p>
+    {% endif %}
+
+    <!-- Add Expense Form -->
+    <form method="POST">
+        <label>Expense ID:</label>
+        <input type="text" name="expense_id" required>
+
+        <label>Description:</label>
+        <input type="text" name="description" required>
+
+        <label>Total Amount:</label>
+        <input type="number" step="0.01" name="amount" required>
+
+        <label>Paid By:</label>
+        <select name="paid_by" required>
+            {% for member in members %}
+            <option value="{{ member.user_id }}">{{ member.name }} ({{ member.email }})</option>
+            {% endfor %}
+        </select>
+
+        <label>Split Type:</label>
+        <select name="split_type" required>
+            <option value="EQUAL">EQUAL</option>
+            <option value="EXACT">EXACT</option>
+            <option value="PERCENT">PERCENT</option>
+        </select>
+
+        <h3>Splits (EXACT or PERCENT)</h3>
+        {% for member in members %}
+            <label>{{ member.name }} ({{ member.email }}):</label>
+            <input type="number" step="0.01" name="{{ member.user_id }}"><br>
+        {% endfor %}
+
+        <!-- Navigation Buttons -->
+        <div style="display:flex; gap:10px; margin-top:15px;">
+            <a class="button-link" href="{{ url_for('create_group') }}">
+                <button type="button" class="back-btn">Back</button>
+            </a>
+            <button type="submit" class="submit-btn">Add Expense</button>
+        </div>
+    </form>
+
+    <!-- View Balances -->
+    <br>
+    <a class="button-link" href="{{ url_for('balances') }}">
+        <button class="submit-btn">View Balances</button>
+    </a>
+
+    <!-- Footer -->
+    <div class="footer">© 2025 Expense Sharing App</div>
+</div>
+</body>
+</html>
